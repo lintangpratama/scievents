@@ -1,6 +1,18 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Disclosure as="nav" class="bg-white bg-opacity-50 backdrop-blur backdrop-filter shadow-sm w-full sticky z-50 top-0" v-slot="{ open }">
+  <Disclosure
+    as="nav"
+    class="
+      bg-white bg-opacity-50
+      backdrop-blur backdrop-filter
+      shadow-sm
+      w-full
+      sticky
+      z-50
+      top-0
+    "
+    v-slot="{ open }"
+  >
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-24">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -30,18 +42,20 @@
             sm:items-stretch sm:justify-start
           "
         >
-          <div class="flex-shrink-0 flex items-center">
-            <img
-              class="block lg:hidden h-8 w-auto"
-              src="../assets/logo.svg"
-              alt="Workflow"
-            />
-            <img
-              class="hidden lg:block h-8 w-auto"
-              src="../assets/logo-with-text.svg"
-              alt="Workflow"
-            />
-          </div>
+          <router-link to="/">
+            <div class="flex-shrink-0 flex items-center">
+              <img
+                class="block lg:hidden h-8 w-auto"
+                src="../assets/logo.svg"
+                alt="Workflow"
+              />
+              <img
+                class="hidden lg:block h-8 w-auto"
+                src="../assets/logo-with-text.svg"
+                alt="Workflow"
+              />
+            </div>
+          </router-link>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <a
@@ -91,7 +105,7 @@
                   focus:ring-white
                 "
               >
-                Login as Organizer
+                <router-link to="/login"> Login as Organizer </router-link>
               </MenuButton>
             </div>
           </Menu>

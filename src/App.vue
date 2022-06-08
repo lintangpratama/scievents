@@ -5,10 +5,11 @@ import Home from "./pages/Home.vue";
 import HomeAdmin from "./pages/HomeAdmin.vue";
 import Login from "./pages/Login.vue";
 import AddEvent from "./pages/AddEvent.vue";
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-  <Home />
+  <router-view />
 </template>
 
 <style>

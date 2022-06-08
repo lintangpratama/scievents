@@ -1,12 +1,9 @@
 <template>
   <NavbarAdmin />
-  <AdminMenu />
+  <EventsGroupAdmin />
 </template>
 
 <script setup>
+import EventsGroupAdmin from "../components/EventGroupAdmin.vue";
 import NavbarAdmin from "../components/NavbarAdmin.vue";
-import AdminMenu from "../components/AdminMenu.vue";
 </script>
-
-<style>
-</style>
