@@ -1,26 +1,29 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import Home from "./pages/Home.vue";
+import HomeAdmin from "./pages/HomeAdmin.vue";
+import Login from "./pages/Login.vue";
+import AddEvent from "./pages/AddEvent.vue";
 </script>
 
 <template>
-  <img class="mx-auto" alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <Home />
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
 
 
-<script>
+<!-- <script>
   const firebase = require("../firebaseConfig.js");
-</script>
+</script> -->
