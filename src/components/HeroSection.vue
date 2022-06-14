@@ -41,7 +41,7 @@
       </p>
       <div class="mt-5 sm:mt-8 sm:flex justify-center">
         <div class="rounded-md shadow">
-          <a
+          <router-link to="/events"
             href="#"
             class="
               w-full
@@ -61,10 +61,10 @@
             "
           >
             Explore now
-          </a>
+          </router-link>
         </div>
         <div class="mt-3 sm:mt-0 sm:ml-3">
-          <a
+          <router-link to="/"
             href="#"
             class="
               w-full
@@ -83,7 +83,7 @@
             "
           >
             What's Scievents?
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

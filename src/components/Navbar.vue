@@ -118,8 +118,8 @@
         <DisclosureButton
           v-for="item in navigation"
           :key="item.name"
-          as="a"
-          :href="item.href"
+          as="router-link"
+          :to="item.href"
           :class="[
             item.current
               ? 'bg-gray-900 text-white'
@@ -147,7 +147,6 @@ import {
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
 
 const navigation = [
-  // { name: "Events", href: "#", current: false },
-  // { name: "Admin", href: "#", current: false },
+  { name: "Events", href: "/events", current: false }
 ];
 </script>

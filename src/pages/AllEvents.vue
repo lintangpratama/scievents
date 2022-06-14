@@ -1,15 +1,16 @@
 <template>
+  <Navbar />
   <div class="bg-white">
     <div
-      class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+      class="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8"
     >
       <h2 class="text-2xl mb-10 font-extrabold tracking-tight text-gray-900">
-        Upcoming <span class="text-main">Events</span>
+        All <span class="text-main">Events</span>
       </h2>
 
       <div
         class="
-          mt-6
+          mt-2
           grid grid-cols-1
           gap-y-10 gap-x-6
           sm:grid-cols-2
@@ -64,10 +65,12 @@
 </template>
 
 <script setup>
+import Navbar from "../components/Navbar.vue";
+
 const products = [
   {
     id: 1,
-    name: "Helvetica",
+    name: "Hesvalsic",
     href: "/events/1",
     imageSrc:
       "https://www.haievent.com/wp-content/uploads/2019/10/Hesvalsic-UIN-Walisongo-Semarang-31-Oktober-2019.jpg",
@@ -89,8 +92,7 @@ const products = [
     id: 1,
     name: "Webinar Independence Day",
     href: "/events/3",
-    imageSrc:
-      "https://pbs.twimg.com/media/E8AZSSWVIAAzPAa.jpg:large",
+    imageSrc: "https://pbs.twimg.com/media/E8AZSSWVIAAzPAa.jpg:large",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "Free",
     color: "HMJ Psikologi",

@@ -94,6 +94,30 @@
                     </p>
                   </div>
 
+                  <div class="col-span-4">
+                    <label
+                      for="first-name"
+                      class="block text-sm font-medium text-gray-700"
+                      >Date</label
+                    >
+                    <input
+                      type="date"
+                      name="first-name"
+                      id="first-name"
+                      autocomplete="given-name"
+                      class="
+                        mt-1
+                        focus:ring-emerald-300 focus:border-emerald-300
+                        block
+                        w-full
+                        shadow-sm
+                        sm:text-sm
+                        border-gray-300
+                        rounded-md
+                      "
+                    />
+                  </div>
+
                   <div class="col-span-3">
                     <label
                       for="first-name"
@@ -101,7 +125,7 @@
                       >Start time</label
                     >
                     <input
-                      type="datetime-local"
+                      type="time"
                       name="first-name"
                       id="first-name"
                       autocomplete="given-name"
@@ -125,7 +149,7 @@
                       >End time</label
                     >
                     <input
-                      type="datetime-local"
+                      type="time"
                       name="last-name"
                       id="last-name"
                       autocomplete="family-name"
@@ -196,6 +220,7 @@
                             id="file-upload"
                             name="file-upload"
                             type="file"
+                            accept="image/*"
                             class="sr-only"
                           />
                         </label>
