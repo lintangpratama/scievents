@@ -4,9 +4,11 @@ import {
   getFirestore,
   query,
   addDoc,
+  doc,
   deleteDoc,
   updateDoc,
   getDocs,
+  getDoc,
   where,
 } from "firebase/firestore";
 import firebaseConfig from "../../firebaseConfig";
@@ -27,13 +29,22 @@ class DataService {
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         const id = {
-          id: doc.id
-        }
+          id: doc.id,
+        };
         let data = doc.data();
-        data = { ...id, ...data }
+        data = { ...id, ...data };
         response.push(data);
       });
       return response;
+    } catch (e) {
+      alert(e);
+    }
+  }
+  async getDataById(id) {
+    try {
+      const docRef = doc(db, "events", id);
+      const response = await getDoc(docRef);
+      console.log(response.data());
     } catch (e) {
       alert(e);
     }
@@ -47,12 +58,24 @@ class DataService {
       console.error("Error adding document: ", e);
     }
   }
-  update(id, data) {
-      
+  async update(id, data) {
+    try {
+      const docRef = doc(db, "events", id);
+      const response = await updateDoc(docRef, data);
+      return response;
+    } catch (e) {
+      alert(e);
+    }
   }
-  // delete(id) {
-  //     return db.doc(id).delete();
-  // }
+  async delete(id) {
+    try {
+      const docRef = doc(db, "events", id);
+      const response = await deleteDoc(docRef);
+      return response;
+    } catch (e) {
+      alert(e);
+    }
+  }
 }
 
 export default DataService;

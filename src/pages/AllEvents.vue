@@ -116,7 +116,11 @@ import DataService from "../utils/firestoreDb";
 export default {
   mounted() {
     const data = new DataService();
-    data.getAll();
-  }
-}
+    const updatedData = {
+      title: "Lintang",
+      about: "Data enggak tertidur",
+    };
+    data.getDataById("ia1pXfbyFp6RXDBPT3zM");
+  },
+};
 </script>
