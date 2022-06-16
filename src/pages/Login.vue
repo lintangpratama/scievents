@@ -1,4 +1,3 @@
-
 <template>
   <div
     class="
@@ -33,7 +32,7 @@
           </router-link>
         </p>
       </div>
-      <form class="mt-8 space-y-6">
+      <form class="mt-8 space-y-6" @submit.prevent="login">
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
@@ -150,7 +149,7 @@
                 aria-hidden="true"
               />
             </span>
-            Sign in
+            <a @click.prevent="login"> Sign in </a>
           </button>
         </div>
       </form>
@@ -158,15 +157,26 @@
   </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import { LockClosedIcon } from "@heroicons/vue/solid";
-</script> -->
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+
+
+const auth = getAuth();
+</script>
 
 <script>
 export default {
   methods: {
     login() {
-      console.log(this.email);
+      signInWithEmailAndPassword(this.auth, this.email, this.password)
+        .then(() => {
+          alert("Successfully logged in");
+          window.location.href = "/admin";
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     },
   },
 };

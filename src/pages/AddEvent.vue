@@ -104,6 +104,7 @@
                       type="date"
                       name="first-name"
                       id="first-name"
+                      v-model="date"
                       autocomplete="given-name"
                       class="
                         mt-1
@@ -128,6 +129,7 @@
                       type="time"
                       name="first-name"
                       id="first-name"
+                      v-model="start_time"
                       autocomplete="given-name"
                       class="
                         mt-1
@@ -151,6 +153,7 @@
                     <input
                       type="time"
                       name="last-name"
+                      v-model="end_time"
                       id="last-name"
                       autocomplete="family-name"
                       class="
@@ -282,6 +285,7 @@
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <button
                   type="submit"
+                  @click.prevent="print"
                   class="
                     inline-flex
                     justify-center
@@ -309,6 +313,17 @@
         </div>
       </div>
     </div>
-   
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    print() {
+      console.log(this.start_time);
+      console.log(this.end_time);
+      console.log(this.date);
+    },
+  },
+};
+</script>

@@ -154,6 +154,7 @@
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
                   <a
+                    @click.prevent="logout"
                     href="#"
                     :class="[
                       active ? 'bg-gray-100' : '',
@@ -201,9 +202,24 @@ import {
   MenuItems,
 } from "@headlessui/vue";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-const navigation = [
-  // { name: "Events", href: "#", current: true },
-  // { name: "Admin", href: "#", current: false },
-];
+const auth = getAuth();
+// const navigation = [
+//   // { name: "Events", href: "#", current: true },
+//   // { name: "Admin", href: "#", current: false },
+// ];
+</script>
+
+<script>
+export default {
+  props: {
+    picture: String
+  },
+  methods: {
+    logout() {
+      this.auth.signOut().then(alert("Logout successfully"));
+    },
+  },
+};
 </script>

@@ -109,3 +109,14 @@ const products = [
   },
 ];
 </script>
+
+<script>
+import DataService from "../utils/firestoreDb";
+
+export default {
+  mounted() {
+    const data = new DataService();
+    data.getAll();
+  }
+}
+</script>

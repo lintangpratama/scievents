@@ -45,7 +45,7 @@
               "
             />
           </div>
-          <div class="mt-4 flex justify-between">
+          <div class="mt-4 flex justify-center">
             <div>
               <h3 class="text-sm text-gray-700">
                 <router-link :to="product.href">
@@ -55,7 +55,6 @@
               </h3>
               <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">{{ product.price }}</p>
           </div>
         </div>
       </div>
@@ -72,7 +71,6 @@ const products = [
     imageSrc:
       "https://www.haievent.com/wp-content/uploads/2019/10/Hesvalsic-UIN-Walisongo-Semarang-31-Oktober-2019.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "Free",
     color: "HMJ Kimia",
   },
   {
@@ -82,7 +80,6 @@ const products = [
     imageSrc:
       "https://eventkampus.com/data/event/poster/poster-lomba-nasional-rangkaian-haflah-miladiyah-ke-51-pai-uin-walisongo.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "Free",
     color: "HMJ Biologi",
   },
   {
@@ -92,7 +89,6 @@ const products = [
     imageSrc:
       "https://pbs.twimg.com/media/E8AZSSWVIAAzPAa.jpg:large",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "Free",
     color: "HMJ Psikologi",
   },
   {
@@ -102,7 +98,6 @@ const products = [
     imageSrc:
       "https://media.goopps.com/upload/module/b_event/event-gallery-0-1545115816-1214.jpg",
     imageAlt: "Front of men's Basic Tee in black.",
-    price: "Rp20.000",
     color: "HMJ Fisika",
   },
 ];
