@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <HeroSection />
-  <EventsGroup />
+  <EventsGroup :data="events" />
   <Category />
 </template>
 
@@ -12,5 +12,24 @@ import Category from "../components/Category.vue";
 import EventsGroup from "../components/EventsGroup.vue";
 </script>
 
-<style>
-</style>
+<script>
+import DataService from "../utils/firestoreDb";
+
+const service = new DataService();
+export default {
+  data() {
+    return {
+      events: [],
+    };
+  },
+  mounted() {
+    service
+      .getSomeData(4)
+      .then((value) => {
+        console.log(value);
+        this.events = value;
+        })
+      .catch((e) => console.log(e));
+  },
+};
+</script>

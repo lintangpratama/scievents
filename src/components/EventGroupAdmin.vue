@@ -8,6 +8,7 @@
       </h2>
 
       <div
+        v-if="data.length !== 0"
         class="
           mt-2
           grid grid-cols-1
@@ -17,11 +18,7 @@
           xl:gap-x-8
         "
       >
-        <div
-          v-for="product in products"
-          :key="product.id"
-          class="group relative"
-        >
+        <div v-for="product in data" :key="product.id" class="group relative">
           <div
             class="
               w-full
@@ -35,8 +32,8 @@
             "
           >
             <img
-              :src="product.imageSrc"
-              :alt="product.imageAlt"
+              :src="product.imageUrl"
+              alt="event_image"
               class="
                 w-full
                 h-full
@@ -45,65 +42,32 @@
               "
             />
           </div>
-          <div class="mt-4 flex justify-between">
+          <div class="mt-4 flex justify-center">
             <div>
               <h3 class="text-sm text-gray-700">
-                <a :href="product.href">
+                <router-link :to="'/admin/event-list/' + product.id">
                   <span aria-hidden="true" class="absolute inset-0" />
-                  {{ product.name }}
-                </a>
+                  {{ product.title }}
+                </router-link>
               </h3>
-              <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
+              <p class="mt-1 text-sm text-gray-500">{{ product.organizer }}</p>
             </div>
-            <p class="text-sm font-medium text-gray-900">{{ product.price }}</p>
           </div>
         </div>
+      </div>
+
+      <div v-else class="text-center mt-16">
+        There's no event.
+        <router-link to="/admin/add-event">
+          <span class="text-main hover:underline">Create one.</span>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-const products = [
-  {
-    id: 1,
-    name: "Helvetica",
-    href: "#",
-    imageSrc:
-      "https://www.haievent.com/wp-content/uploads/2019/10/Hesvalsic-UIN-Walisongo-Semarang-31-Oktober-2019.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "Free",
-    color: "HMJ Kimia",
-  },
-  {
-    id: 1,
-    name: "Lomba Nasional Cerpen ...",
-    href: "#",
-    imageSrc:
-      "https://eventkampus.com/data/event/poster/poster-lomba-nasional-rangkaian-haflah-miladiyah-ke-51-pai-uin-walisongo.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "Free",
-    color: "HMJ Biologi",
-  },
-  {
-    id: 1,
-    name: "Webinar Independence Day",
-    href: "#",
-    imageSrc:
-      "https://pbs.twimg.com/media/E8AZSSWVIAAzPAa.jpg:large",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "Free",
-    color: "HMJ Psikologi",
-  },
-  {
-    id: 1,
-    name: "Collaboration Compfest",
-    href: "#",
-    imageSrc:
-      "https://media.goopps.com/upload/module/b_event/event-gallery-0-1545115816-1214.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "Rp20.000",
-    color: "HMJ Fisika",
-  },
-];
+<script>
+export default {
+  props: ["data"],
+};
 </script>

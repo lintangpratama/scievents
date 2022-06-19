@@ -32,10 +32,10 @@
               />
             </div>
             <h3 class="mt-6 text-sm text-gray-500">
-              <a :href="callout.href">
+              <router-link :to="callout.href">
                 <span class="absolute inset-0" />
                 {{ callout.name }}
-              </a>
+              </router-link>
             </h3>
             <p class="text-base font-semibold text-gray-900">
               {{ callout.description }}
@@ -56,7 +56,7 @@ const callouts = [
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/fisika.png?alt=media&token=f76027a9-47a5-44c0-9dd1-d4528217e2d9",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/events?organizer=HMJ+Fisika",
   },
   {
     name: "Himpunan Mahasiswa",
@@ -65,7 +65,7 @@ const callouts = [
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/matematika.png?alt=media&token=c138855d-40ae-4802-94e0-fe40ddb4f91b",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "#",
+    href: "/events?organizer=HMJ+Matematika",
   },
   {
     name: "Himpunan Mahasiswa",
@@ -73,7 +73,7 @@ const callouts = [
     imageSrc:
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/ti.png?alt=media&token=e1aac55b-db21-4887-a912-5402ed724ced",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-    href: "#",
+    href: "/events?organizer=HMJ+Teknologi+Informasi",
   },
   {
     name: "Himpunan Mahasiswa",
@@ -82,7 +82,7 @@ const callouts = [
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/biologi.png?alt=media&token=8c182404-95ee-4cdb-8916-7c256bbe8100",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/events?organizer=HMJ+Biologi",
   },
   {
     name: "Eksekutif",
@@ -91,7 +91,7 @@ const callouts = [
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/dema.png?alt=media&token=97a3e86c-a86a-4b48-992d-b6103608811c",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/events?organizer=Dema+FST",
   },
   {
     name: "Legislatif",
@@ -100,7 +100,7 @@ const callouts = [
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/sema.png?alt=media&token=5e6c597b-0dcc-4841-96e6-76c3efc9351f",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/events?organizer=Sema+FST",
   },
   {
     name: "Himpunan Mahasiswa",
@@ -109,7 +109,7 @@ const callouts = [
       "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/kimia.png?alt=media&token=9f853df4-0f65-4979-8fc3-0efabc70502a",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/events?organizer=HMJ+Kimia",
   },
 ];
 </script>

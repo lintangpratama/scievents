@@ -159,17 +159,18 @@
 
 <script setup>
 import { LockClosedIcon } from "@heroicons/vue/solid";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-
-
-const auth = getAuth();
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 </script>
 
 <script>
 export default {
   methods: {
     login() {
-      signInWithEmailAndPassword(this.auth, this.email, this.password)
+      signInWithEmailAndPassword(getAuth(), this.email, this.password)
         .then(() => {
           alert("Successfully logged in");
           window.location.href = "/admin";
@@ -178,6 +179,14 @@ export default {
           alert(error.message);
         });
     },
+  },
+  mounted() {
+    onAuthStateChanged(getAuth(), (user) => {
+      if (user) {
+        console.log(user);
+        window.location.href = "/admin";
+      }
+    });
   },
 };
 </script>

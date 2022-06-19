@@ -4,7 +4,7 @@
     <div class="px-4 py-5 sm:px-6">
       <div class="w-full mx-auto mb-12 text-center">
         <h2 class="text-3xl mb-2 font-extrabold tracking-tight text-gray-900">
-          Hesvalsic: Sounds and Musics University Concert
+          {{ title }}
         </h2>
         <p
           class="
@@ -16,10 +16,10 @@
             md:mt-2 md:text-base
           "
         >
-          Organize by HMJ Kimia
+          Organize by {{ organizer }}
         </p>
         <img
-          src="https://www.haievent.com/wp-content/uploads/2019/10/Hesvalsic-UIN-Walisongo-Semarang-31-Oktober-2019.jpg"
+          :src="imageUrl"
           class="mx-auto"
           width="350"
           alt="event image"
@@ -39,7 +39,7 @@
         >
           <dt class="text-sm font-medium text-gray-500">Title</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            Hesvalsic: Sounds and Musics University Concert
+            {{ title }}
           </dd>
         </div>
         <div
@@ -47,11 +47,7 @@
         >
           <dt class="text-sm font-medium text-gray-500">About</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-            incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-            consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-            proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit
-            deserunt qui eu.
+            {{ about }}
           </dd>
         </div>
         <div
@@ -59,7 +55,7 @@
         >
           <dt class="text-sm font-medium text-gray-500">Date</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            Wednesday, 13 January 2022
+            {{ date }}
           </dd>
         </div>
         <div
@@ -67,7 +63,7 @@
         >
           <dt class="text-sm font-medium text-gray-500">Time</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            12.00 - 16.00
+            {{ start_time }} - {{ end_time }}
           </dd>
         </div>
         <div
@@ -75,33 +71,35 @@
         >
           <dt class="text-sm font-medium text-gray-500">Location</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            Gedung Teater Fakultas Sains dan Teknologi
+           {{ location }}
           </dd>
         </div>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-          <button
-            type="submit"
-            class="
-              inline-flex
-              justify-center
-              py-2
-              px-4
-              border border-transparent
-              shadow-sm
-              text-sm
-              font-medium
-              rounded-md
-              text-white
-              bg-main
-              hover:bg-main
-              focus:outline-none
-              focus:ring-2
-              focus:ring-offset-2
-              focus:ring-emerald-300
-            "
-          >
-            Register Event
-          </button>
+          <a target="_blank" :href="link">
+            <button
+              type="submit"
+              class="
+                inline-flex
+                justify-center
+                py-2
+                px-4
+                border border-transparent
+                shadow-sm
+                text-sm
+                font-medium
+                rounded-md
+                text-white
+                bg-main
+                hover:bg-main
+                focus:outline-none
+                focus:ring-2
+                focus:ring-offset-2
+                focus:ring-emerald-300
+              "
+            >
+              Register Event
+            </button>
+          </a>
         </div>
       </dl>
     </div>
@@ -110,4 +108,20 @@
 
 <script setup>
 import { PaperClipIcon } from "@heroicons/vue/solid";
+</script>
+
+<script>
+export default {
+  props: [
+    'title', 
+    'about',
+    'date',
+    'start_time',
+    'end_time', 
+    'location',
+    'link',
+    'imageUrl',
+    'organizer'
+  ],
+}
 </script>

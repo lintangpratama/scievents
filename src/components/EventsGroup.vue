@@ -18,7 +18,7 @@
         "
       >
         <div
-          v-for="product in products"
+          v-for="product in data"
           :key="product.id"
           class="group relative"
         >
@@ -35,8 +35,8 @@
             "
           >
             <img
-              :src="product.imageSrc"
-              :alt="product.imageAlt"
+              :src="product.imageUrl"
+              alt="event_image"
               class="
                 w-full
                 h-full
@@ -48,12 +48,12 @@
           <div class="mt-4 flex justify-center">
             <div>
               <h3 class="text-sm text-gray-700">
-                <router-link :to="product.href">
+                <router-link :to="'/events/' + product.id">
                   <span aria-hidden="true" class="absolute inset-0" />
-                  {{ product.name }}
+                  {{ product.title }}
                 </router-link>
               </h3>
-              <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
+              <p class="mt-1 text-sm text-gray-500">{{ product.organizer }}</p>
             </div>
           </div>
         </div>
@@ -101,4 +101,10 @@ const products = [
     color: "HMJ Fisika",
   },
 ];
+</script>
+
+<script>
+export default {
+  props: ['data']
+}
 </script>

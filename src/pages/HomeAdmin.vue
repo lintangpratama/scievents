@@ -1,5 +1,5 @@
 <template>
-  <NavbarAdmin picture="" />
+  <NavbarAdmin />
   <AdminMenu />
   <div @click.prevent="create">Create displayName</div>
 </template>
@@ -22,7 +22,7 @@ export default {
           "https://firebasestorage.googleapis.com/v0/b/scievents-9ed9f.appspot.com/o/fisika.png?alt=media&token=f76027a9-47a5-44c0-9dd1-d4528217e2d9",
       })
         .then(() => {
-          alert("Profile updated")
+          alert("Profile updated");
         })
         .catch((error) => {
           alert(error);

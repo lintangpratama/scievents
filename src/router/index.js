@@ -6,7 +6,7 @@ import AddEvent from "../pages/AddEvent.vue";
 import EventListAdmin from "../pages/EventListAdmin.vue";
 import AllEvents from "../pages/AllEvents.vue";
 import DetailEvent from "../pages/Details.vue";
-
+import EventDetailAdmin from "../pages/EventDetailAdmin.vue";
 
 const routes = [
   {
@@ -44,11 +44,16 @@ const routes = [
     name: "EventList",
     component: EventListAdmin,
   },
+  {
+    path: "/admin/event-list/:eventId",
+    name: "EventDetailAdmin",
+    component: EventDetailAdmin,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
 export default router;

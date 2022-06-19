@@ -10,6 +10,8 @@ import {
   getDocs,
   getDoc,
   where,
+  limit,
+  orderBy
 } from "firebase/firestore";
 import firebaseConfig from "../../firebaseConfig";
 
@@ -40,11 +42,51 @@ class DataService {
       alert(e);
     }
   }
+  async getSomeData(number) {
+    try {
+      const q = query(collection(db, "events"), orderBy("date", "desc"), limit(number));
+
+      const querySnapshot = await getDocs(q);
+      const response = [];
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        const id = {
+          id: doc.id,
+        };
+        let data = doc.data();
+        data = { ...id, ...data };
+        response.push(data);
+      });
+      return response;
+    } catch (e) {
+      alert(e);
+    }
+  }
+  async getDataByOrganizer(organizer) {
+    try {
+      const q = query(collection(db, "events"), where("organizer", "==", organizer));
+
+      const querySnapshot = await getDocs(q);
+      const response = [];
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        const id = {
+          id: doc.id,
+        };
+        let data = doc.data();
+        data = { ...id, ...data };
+        response.push(data);
+      });
+      return response;
+    } catch (e) {
+      alert(e);
+    }
+  }
   async getDataById(id) {
     try {
       const docRef = doc(db, "events", id);
       const response = await getDoc(docRef);
-      console.log(response.data());
+      return response.data();
     } catch (e) {
       alert(e);
     }
@@ -53,9 +95,9 @@ class DataService {
     try {
       const docRef = await addDoc(collection(db, "events"), data);
       console.log("Document written with ID: ", docRef.id);
-      alert("Data input successfully");
+      alert("Event created successfully");
     } catch (e) {
-      console.error("Error adding document: ", e);
+      alert("Error adding document: ", e);
     }
   }
   async update(id, data) {
