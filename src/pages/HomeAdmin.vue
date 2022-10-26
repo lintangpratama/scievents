@@ -1,16 +1,15 @@
+<script setup>
+import NavbarAdmin from "../components/NavbarAdmin.vue";
+import AdminMenu from "../components/AdminMenu.vue";
+import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+const auth = getAuth();
+</script>
+
 <template>
   <NavbarAdmin />
   <AdminMenu />
   <div @click.prevent="create">Create displayName</div>
 </template>
-
-<script setup>
-import NavbarAdmin from "../components/NavbarAdmin.vue";
-import AdminMenu from "../components/AdminMenu.vue";
-import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
-
-const auth = getAuth();
-</script>
 
 <script>
 export default {
